@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { client } from '../lib/apollo'
 import { gql } from '@apollo/client'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,9 @@ export default function Home({ posts }) {
         {posts.map((post) => {
           return (
             <div key={post.id}>
-              <h1>{post.title}</h1>
+              <Link href={post.uri}>
+                <h1>{post.title}</h1>
+              </Link>
               {post.featuredImage && (
                 <Image
                   src={post.featuredImage.node.sourceUrl}
