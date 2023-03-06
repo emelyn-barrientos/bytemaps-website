@@ -8,7 +8,6 @@ import { gql } from '@apollo/client'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ posts }) {
-  console.log('posts: ', posts)
   return (
     <div className={styles.container}>
       <Head>
@@ -17,13 +16,9 @@ export default function Home({ posts }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid">
+
+      <div>
         {posts.map((post) => {
-          console.log('post.id: ', post.id)
-          console.log(
-            'post.featuredImage.sourceUrl: ',
-            post.featuredImage.node.sourceUrl
-          )
           return (
             <div key={post.id}>
               <h1>{post.title}</h1>
