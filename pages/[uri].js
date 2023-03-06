@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import { client } from '../lib/apollo'
+import { gql } from '@apollo/client'
 
 export default function SlugPage({ post }) {
+  console.log('post: ', post)
   return (
     <div>
       <Head>
@@ -19,7 +22,22 @@ export default function SlugPage({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await getPostByUri(params.uri)
+  const GET_POST_BY_URI = gql`
+    query getPostByUri($id: ID!) {
+      post(id: $id, idType: URI) {
+        title
+        content
+        date
+        uri
+      }
+    }
+  `
+  const res = await client.query({
+    query: GET_POST_BY_URI,
+    variables: {
+      id: params.uri,
+    },
+  })
   const post = res?.data?.post
   return {
     props: {
@@ -28,7 +46,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPat() {
+export async function getStaticPaths() {
   const paths = []
   return {
     paths,
