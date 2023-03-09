@@ -4,6 +4,7 @@ import { gql } from '@apollo/client'
 import Image from 'next/image'
 
 export default function SlugPage({ post }) {
+  console.log('post: ', post)
   return (
     <div>
       <Head>
@@ -33,19 +34,10 @@ export async function getStaticProps({ params }) {
     query getPostByUri($id: ID!) {
       post(id: $id, idType: URI) {
         title
-        content
+        id
         date
         uri
-        featuredImage {
-          node {
-            altText
-            sourceUrl
-            mediaDetails {
-              width
-              height
-            }
-          }
-        }
+        content
       }
     }
   `
