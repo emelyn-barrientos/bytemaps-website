@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { client } from '../lib/apollo'
+import { gql } from '@apollo/client'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,4 +22,22 @@ export default function Info() {
       </p>
     </div>
   )
+}
+
+xport async function getStaticProps() {
+  const GET_INFO_PAGE = gql`
+    query GetInfoPage {
+    }
+  `
+  const res = await client.query({
+    query: GET_INFO_PAGE,
+  })
+
+  const posts = res?.data?.posts?.nodes
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
