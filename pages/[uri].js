@@ -34,7 +34,7 @@ export default function SlugPage({ post }) {
 
 export async function getStaticProps({ params }) {
   const GET_POST_BY_URI = gql`
-    query getPostByUri($id: ID!) {
+    query GetPostByUri($id: ID!) {
       post(id: $id, idType: URI) {
         title
         id
