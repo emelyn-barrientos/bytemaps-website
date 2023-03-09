@@ -27,7 +27,7 @@ export default function Home({ posts }) {
       <div>
         {posts.map((post) => {
           const imageUrl = getImageUrlFromContent(post.content)
-          console.log('imageUrl: ', typeof imageUrl)
+
           return (
             <div key={post.id}>
               <Link href={post.uri}>
