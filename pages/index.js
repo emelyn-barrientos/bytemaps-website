@@ -42,8 +42,8 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const GET_POSTS = gql`
-    query getAllPosts {
+  const GET_ALL_POSTS = gql`
+    query GetAllPosts {
       posts {
         nodes {
           title
@@ -51,21 +51,12 @@ export async function getStaticProps() {
           date
           uri
           content
-          featuredImage {
-            node {
-              sourceUrl
-              mediaDetails {
-                height
-                width
-              }
-            }
-          }
         }
       }
     }
   `
   const res = await client.query({
-    query: GET_POSTS,
+    query: GET_ALL_POSTS,
   })
 
   const posts = res?.data?.posts?.nodes
