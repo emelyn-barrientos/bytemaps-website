@@ -5,6 +5,13 @@ import Image from 'next/image'
 
 export default function SlugPage({ post }) {
   console.log('post: ', post)
+
+  const getVideoUrlFromContent = (content) => {
+    const regex = /<iframe.*?src="(.*?)"/
+    const match = regex.exec(content)
+    return match ? match[1] : null
+  }
+
   return (
     <div>
       <Head>
