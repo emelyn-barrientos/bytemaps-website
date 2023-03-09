@@ -7,16 +7,7 @@ import { gql } from '@apollo/client'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Info({ page }) {
-  if (!page) {
-    return (
-      <div className={styles.container}>
-        <Head>
-          <title>bytemaps | Error</title>
-        </Head>
-        <h1>Error: Page not found</h1>
-      </div>
-    )
-  }
+  console.log('page: ', page)
 
   return (
     <div className={styles.container}>
@@ -28,9 +19,7 @@ export default function Info({ page }) {
       </Head>
 
       <h1>{page.title}</h1>
-      <p>
-        Bytemaps is blahblah blah fuckin blah my e-mail is bytemaps@gmail.com
-      </p>
+      <div dangerouslySetInnerHTML={{ __html: page.content }} />
     </div>
   )
 }
@@ -47,7 +36,7 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: GET_INFO_PAGE_BY_URI,
     variables: {
-      uri: '/info', // join the slug array into a URL path string
+      uri: '/info',
     },
   })
 
