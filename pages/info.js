@@ -15,6 +15,9 @@ export default function Info() {
       </Head>
 
       <h1>Info Page</h1>
+      <p>
+        Bytemaps is blahblah blah fuckin blah my e-mail is bytemaps@gmail.com
+      </p>
     </div>
   )
 }
