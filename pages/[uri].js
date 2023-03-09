@@ -1,16 +1,15 @@
 import Head from 'next/head'
 import { client } from '../lib/apollo'
 import { gql } from '@apollo/client'
-import Image from 'next/image'
 
 export default function SlugPage({ post }) {
-  console.log('post: ', post)
-
   const getVideoUrlFromContent = (content) => {
-    const regex = /<iframe.*?src="(.*?)"/
+    const regex = /<video.*?src="(.*?)"/
     const match = regex.exec(content)
     return match ? match[1] : null
   }
+
+  const videoUrl = getVideoUrlFromContent(post.content)
 
   return (
     <div>
@@ -22,13 +21,10 @@ export default function SlugPage({ post }) {
       <main>
         <div className="siteHeader">
           <h1 className="title">{post.title}</h1>
-          {post.featuredImage && (
-            <Image
-              src={post.featuredImage.node.sourceUrl}
-              alt={post.featuredImage.node.altText}
-              width={post.featuredImage.node.mediaDetails.width}
-              height={post.featuredImage.node.mediaDetails.height}
-            />
+          {videoUrl && (
+            <video autoPlay loop style={{ width: '400px', height: '600px' }}>
+              <source src={videoUrl} />
+            </video>
           )}
         </div>
       </main>
