@@ -7,8 +7,6 @@ import { gql } from '@apollo/client'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Info({ page }) {
-  console.log('page: ', page)
-
   return (
     <div className={styles.container}>
       <Head>
