@@ -24,9 +24,15 @@ export default function Info() {
   )
 }
 
-xport async function getStaticProps() {
-  const GET_INFO_PAGE = gql`
-    query GetInfoPage {
+export async function getStaticProps({ params }) {
+  const GET_INFO_PAGE_BY_URI = gql`
+    query GetInfoPageByUri($id: ID = "/info") {
+      page(id: $id, idType: URI) {
+        title
+        id
+        uri
+        content
+      }
     }
   `
   const res = await client.query({
@@ -37,7 +43,7 @@ xport async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      page,
     },
   }
 }
