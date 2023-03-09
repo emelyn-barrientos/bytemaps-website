@@ -37,8 +37,8 @@ export default function Home({ posts }) {
                 <Image
                   src={imageUrl}
                   alt={post.title}
-                  width={600}
-                  height={400}
+                  width={500}
+                  height={500}
                 />
               )}
             </div>
