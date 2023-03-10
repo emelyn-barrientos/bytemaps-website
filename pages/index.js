@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import variables from '@/styles/variables.module.scss'
 import { client } from '../lib/apollo'
 import { gql } from '@apollo/client'
 import Link from 'next/link'
@@ -29,7 +30,7 @@ export default function Home({ posts }) {
           const imageUrl = getImageUrlFromContent(post.content)
 
           return (
-            <div key={post.id}>
+            <div class={variables.title} key={post.id}>
               <Link href={post.uri}>
                 <h1>{post.title}</h1>
               </Link>
