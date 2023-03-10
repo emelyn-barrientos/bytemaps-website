@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
+import Grid from '@/components/Grid'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -27,6 +28,7 @@ export default function Home({ posts }) {
       </Head>
 
       <NavBar />
+      <Grid />
 
       <div>
         {posts.map((post) => {
