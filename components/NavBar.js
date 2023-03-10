@@ -8,9 +8,15 @@ export default function NavBar() {
         <h1 className="site-title">Bytemaps</h1>
       </Link>
       <ul className="nav-list">
-        <li className="navlist-item">Home</li>
-        <li className="navlist-item">Instagram</li>
-        <li className="navlist-item">Info</li>
+        <Link href="/">
+          <li className="navlist-item">Home</li>
+        </Link>
+        <Link href="https://www.instagram.com/bytemaps/">
+          <li className="navlist-item">Instagram</li>
+        </Link>
+        <Link href="/info">
+          <li className="navlist-item">Info</li>
+        </Link>
       </ul>
     </nav>
   )
