@@ -22,3 +22,30 @@ export default function Grid() {
     </div>
   )
 }
+
+export async function getStaticProps() {
+  const GET_ALL_POSTS = gql`
+    query GetAllPosts {
+      posts {
+        nodes {
+          title
+          id
+          date
+          uri
+          content
+        }
+      }
+    }
+  `
+  const res = await client.query({
+    query: GET_ALL_POSTS,
+  })
+
+  const posts = res?.data?.posts?.nodes
+
+  return {
+    props: {
+      posts,
+    },
+  }
+}
