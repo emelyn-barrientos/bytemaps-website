@@ -17,9 +17,6 @@ export default function PostCard({ posts }) {
 
           return (
             <div className={variables.title} key={post.id}>
-              <Link href={post.uri}>
-                <h1>{post.title}</h1>
-              </Link>
               {imageUrl && (
                 <Image
                   src={imageUrl}
@@ -28,6 +25,9 @@ export default function PostCard({ posts }) {
                   height={500}
                 />
               )}
+              <Link href={post.uri}>
+                <h1>{post.title}</h1>
+              </Link>
             </div>
           )
         })}
