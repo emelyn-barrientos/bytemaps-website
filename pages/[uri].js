@@ -14,7 +14,7 @@ export default function SlugPage({ post }) {
   return (
     <div>
       <Head>
-        <title>bytemaps | {post.title}</title>
+        <title>Bytemaps | {post.title}</title>
         <link rel="icon" href="favicon.ico" />
       </Head>
 
