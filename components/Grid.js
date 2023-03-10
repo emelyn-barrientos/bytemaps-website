@@ -2,7 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Grid() {
+export default function Grid({ posts }) {
+  const getImageUrlFromContent = (content) => {
+    const regex = /<img.*?src="(.*?)"/
+    const match = regex.exec(content)
+    return match ? match[1] : null
+  }
   return (
     <div>
       {posts.map((post) => {
