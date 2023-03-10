@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import PostCard from './PostCard'
 import variables from '@/styles/variables.module.scss'
 
 export default function Grid({ posts }) {
@@ -12,6 +13,7 @@ export default function Grid({ posts }) {
 
   return (
     <div>
+      <PostCard />
       {posts &&
         posts.map((post) => {
           const imageUrl = getImageUrlFromContent(post.content)
