@@ -1,22 +1,14 @@
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Grid from '@/components/Grid'
 import styles from '@/styles/Home.module.css'
-import variables from '@/styles/variables.module.scss'
+import { Inter } from 'next/font/google'
 import { client } from '../lib/apollo'
 import { gql } from '@apollo/client'
-import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ posts }) {
-  const getImageUrlFromContent = (content) => {
-    const regex = /<img.*?src="(.*?)"/
-    const match = regex.exec(content)
-    return match ? match[1] : null
-  }
-
   return (
     <div className={styles.container}>
       <Head>
@@ -27,28 +19,7 @@ export default function Home({ posts }) {
       </Head>
 
       <NavBar />
-
-      <div>
-        {posts.map((post) => {
-          const imageUrl = getImageUrlFromContent(post.content)
-
-          return (
-            <div class={variables.title} key={post.id}>
-              <Link href={post.uri}>
-                <h1>{post.title}</h1>
-              </Link>
-              {imageUrl && (
-                <Image
-                  src={imageUrl}
-                  alt={post.title}
-                  width={500}
-                  height={500}
-                />
-              )}
-            </div>
-          )
-        })}
-      </div>
+      <Grid posts={posts} />
     </div>
   )
 }
@@ -75,7 +46,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      posts: posts || [],
     },
   }
 }
