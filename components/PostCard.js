@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import variables from '@/styles/variables.module.scss'
+import variables from '@/styles/Variables.module.scss'
 
 export default function PostCard({ posts }) {
   const getImageUrlFromContent = (content) => {
