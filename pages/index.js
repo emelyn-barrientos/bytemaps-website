@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
 import Grid from '@/components/Grid'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import variables from '@/styles/variables.module.scss'
+import { Inter } from 'next/font/google'
 import { client } from '../lib/apollo'
 import { gql } from '@apollo/client'
-import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 

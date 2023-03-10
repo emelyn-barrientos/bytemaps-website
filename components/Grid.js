@@ -4,7 +4,6 @@ import Link from 'next/link'
 import variables from '@/styles/variables.module.scss'
 
 export default function Grid({ posts }) {
-  console.log('posts: ', posts)
   const getImageUrlFromContent = (content) => {
     const regex = /<img.*?src="(.*?)"/
     const match = regex.exec(content)
