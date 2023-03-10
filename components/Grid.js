@@ -3,7 +3,7 @@ import PostCard from './PostCard'
 
 export default function Grid({ posts }) {
   return (
-    <div>
+    <div className="grid-container">
       <PostCard posts={posts} />
     </div>
   )
