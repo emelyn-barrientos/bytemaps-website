@@ -12,23 +12,14 @@ export default function PostCard({ post }) {
   const imageUrl = getImageUrlFromContent(post.content)
 
   return (
-    <div key={post.id}>
-      {imageUrl && (
-        <div
-          className={styles['image-container']}
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-        >
-          <Image
-            src={imageUrl}
-            alt={post.title}
-            width={750}
-            height={750}
-            layout="responsive"
-          />
-        </div>
-      )}
+    <div key={post.id} className={styles['post-card']}>
       <Link href={post.uri}>
-        <h1>{post.title}</h1>
+        {imageUrl && (
+          <div className={styles['post-image']}>
+            <Image src={imageUrl} alt={post.title} width={500} height={500} />
+          </div>
+        )}
+        <h2>{post.title}</h2>
       </Link>
     </div>
   )

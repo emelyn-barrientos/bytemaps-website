@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '../styles/global.scss'
 import { ApolloProvider } from '@apollo/client/react'
 import { client } from '@/lib/apollo'
 
