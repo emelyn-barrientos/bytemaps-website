@@ -1,23 +1,23 @@
 import React from 'react'
 import Link from 'next/link'
-import styles from './NavBar.module.scss'
+import styles from '../styles/NavBar.module.scss'
 
 export default function NavBar() {
   return (
     <div>
-      <nav className={styles.navbarWrapper}>
+      <nav className={styles['nav-bar']}>
         <Link href="/">
-          <h1 className={styles.siteTitle}>Bytemaps</h1>
+          <h1 className={styles['site-title']}>Bytemaps</h1>
         </Link>
-        <ul className={styles.navlinks}>
+        <ul className={styles['nav-links']}>
           <Link href="/">
-            <li className={styles.navlistItem}>Home</li>
+            <li className={styles['nav-list-item']}>Home</li>
           </Link>
           <Link href="https://www.instagram.com/bytemaps/">
-            <li className={styles.navlistItem}>Instagram</li>
+            <li className={styles['nav-list-item']}>Instagram</li>
           </Link>
           <Link href="/info">
-            <li className={styles.navlistItem}>Info</li>
+            <li className={styles['nav-list-item']}>Info</li>
           </Link>
         </ul>
       </nav>
