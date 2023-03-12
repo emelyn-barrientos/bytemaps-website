@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 4rem;
   width: 100%;
   min-width: 100%;
   box-sizing: border-box;
@@ -21,8 +20,10 @@
 .grid-item {
   flex: 1 1 30%;
   box-sizing: border-box;
+  border: 1px solid #ccc;
   padding: 0rem;
   margin: 0rem;
+  margin-bottom: 4rem;
 
   @media screen and (max-width: 1024px) {
     flex: 1 1 40%;
