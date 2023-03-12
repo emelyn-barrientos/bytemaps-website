@@ -1,13 +1,25 @@
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
-  width: 100%;
-}
+  padding: 0 20px;
+  box-sizing: border-box;
 
-.grid-item {
-  flex-basis: calc(33.33% - 20px);
-  margin-bottom: 20px;
+  .grid-item {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h3 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+    }
+  }
 }
