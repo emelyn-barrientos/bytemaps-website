@@ -14,8 +14,17 @@ export default function PostCard({ post }) {
   return (
     <div key={post.id}>
       {imageUrl && (
-        <div className={styles['image-container']}>
-          <Image src={imageUrl} alt={post.title} width={500} height={500} />
+        <div
+          className={styles['image-container']}
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+        >
+          <Image
+            src={imageUrl}
+            alt={post.title}
+            width={750}
+            height={750}
+            layout="responsive"
+          />
         </div>
       )}
       <Link href={post.uri}>
