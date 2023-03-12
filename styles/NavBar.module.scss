@@ -2,10 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  padding: 0 30px;
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
 }
 
 .site-title {
@@ -13,11 +12,13 @@
   font-weight: 800;
   color: #111;
   cursor: pointer;
+  margin: 0rem;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
+  margin: 0rem;
 }
 
 .nav-list-item {
@@ -27,4 +28,5 @@
   color: #444;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  
 }
