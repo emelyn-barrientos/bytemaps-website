@@ -2,15 +2,17 @@
 
 body {
   margin: 2rem 2rem 10rem;
-  padding: 0;
+  padding: 0rem;
   font-family: 'DM Mono', sans-serif;
   color: black;
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:hover {
   text-decoration: underline;
+  color: blueviolet;
 }
