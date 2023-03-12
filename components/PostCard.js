@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from '../styles/PostCard.module.scss'
 
 export default function PostCard({ post }) {
   const getImageUrlFromContent = (content) => {
@@ -11,7 +12,7 @@ export default function PostCard({ post }) {
   const imageUrl = getImageUrlFromContent(post.content)
 
   return (
-    <div key={post.id}>
+    <div key={post.id} className={styles['post-card']}>
       {imageUrl && (
         <div>
           <Image src={imageUrl} alt={post.title} width={500} height={500} />
