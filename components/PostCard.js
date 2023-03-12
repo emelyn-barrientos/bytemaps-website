@@ -14,12 +14,12 @@ export default function PostCard({ post }) {
   return (
     <div key={post.id} className={styles['post-card']}>
       {imageUrl && (
-        <div>
+        <div className={styles['post-image']}>
           <Image src={imageUrl} alt={post.title} width={500} height={500} />
         </div>
       )}
       <Link href={post.uri}>
-        <h1>{post.title}</h1>
+        <h2>{post.title}</h2>
       </Link>
     </div>
   )
