@@ -13,7 +13,7 @@ export default function PostCard({ post }) {
   return (
     <div key={post.id}>
       {imageUrl && (
-        <Image src={imageUrl} alt={post.title} width={500} height={500} />
+        <Image src={imageUrl} alt={post.title} width={750} height={750} />
       )}
       <Link href={post.uri}>
         <h1>{post.title}</h1>
