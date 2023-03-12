@@ -2,9 +2,23 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
-  max-width: 75rem; /* set a max-width that fits within the window */
+  margin-bottom: 4rem;
+  max-width: 75rem; /* add this property */
+  width: 100%;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .grid-item {
   grid-column: span 1;
+  box-sizing: border-box; 
+  padding: 1rem;
+  margin: 0 1rem 4rem; 
 }
