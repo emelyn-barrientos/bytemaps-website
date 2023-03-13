@@ -3,7 +3,7 @@ import NavBar from '@/components/NavBar'
 
 export default function Header() {
   return (
-    <header>
+    <>
       <Head>
         <title>Bytemaps</title>
         <meta
@@ -14,6 +14,6 @@ export default function Header() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-    </header>
+    </>
   )
 }
