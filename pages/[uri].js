@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { client } from '../lib/apollo'
+import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
 export default function SlugPage({ post }) {

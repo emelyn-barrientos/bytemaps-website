@@ -3,7 +3,7 @@ import NavBar from '@/components/NavBar'
 import Grid from '@/components/Grid'
 import styles from '@/styles/Home.module.css'
 import { Inter } from 'next/font/google'
-import { client } from '../lib/apollo'
+import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
 const inter = Inter({ subsets: ['latin'] })
