@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import styles from '../styles/Post.module.scss'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
@@ -16,16 +17,14 @@ export default function SlugPage({ post }) {
       <Head>
         <title>{post.title} - Bytemaps</title>
       </Head>
-      <main>
-        <div className="siteHeader">
-          <h1 className="title">{post.title}</h1>
-          {videoUrl && (
-            <video autoPlay loop style={{ width: '400px', height: '600px' }}>
-              <source src={videoUrl} />
-            </video>
-          )}
-        </div>
-      </main>
+      <div className={styles['post-container']}>
+        <h1 className={styles['post-title']}>{post.title}</h1>
+        {videoUrl && (
+          <video className={styles['post-video']} autoPlay loop>
+            <source src={videoUrl} />
+          </video>
+        )}
+      </div>
     </div>
   )
 }
