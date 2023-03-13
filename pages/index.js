@@ -2,11 +2,8 @@ import Head from 'next/head'
 import NavBar from '@/components/NavBar'
 import Grid from '@/components/Grid'
 import styles from '@/styles/Home.module.css'
-import { Inter } from 'next/font/google'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ posts }) {
   return (
@@ -38,15 +35,25 @@ export async function getStaticProps() {
       }
     }
   `
-  const res = await client.query({
-    query: GET_ALL_POSTS,
-  })
+  try {
+    const res = await client.query({
+      query: GET_ALL_POSTS,
+    })
 
-  const posts = res?.data?.posts?.nodes
+    const posts = res?.data?.posts?.nodes
 
-  return {
-    props: {
-      posts: posts || [],
-    },
+    return {
+      props: {
+        posts: posts || [],
+      },
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: {
+        posts: [],
+        error: 'An error occurred while fetching data',
+      },
+    }
   }
 }
