@@ -13,7 +13,7 @@ export default function SlugPage({ post }) {
   const videoUrl = getVideoUrlFromContent(post.content)
 
   return (
-    <div>
+    <>
       <Head>
         <title>{post.title} - Bytemaps</title>
       </Head>
@@ -25,7 +25,7 @@ export default function SlugPage({ post }) {
           </video>
         )}
       </div>
-    </div>
+    </>
   )
 }
 
