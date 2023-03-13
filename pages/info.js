@@ -9,9 +9,12 @@ export default function Info({ page }) {
       <Head>
         <title>{page.title} - Bytemaps</title>
       </Head>
-      <div className={styles.container}>
-        <h1>{page.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: page.content }} />
+      <div className="info-container">
+        <h1 className="info-title">{page.title}</h1>
+        <div
+          className="info-content"
+          dangerouslySetInnerHTML={{ __html: page.content }}
+        />
       </div>
     </>
   )
