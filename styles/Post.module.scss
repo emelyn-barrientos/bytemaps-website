@@ -1,0 +1,16 @@
+.post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* set the height to full viewport height */
+  
+.post-title {
+    margin-bottom: 1rem; /* add some spacing between the heading and video */
+}
+
+.post-video {
+    width: 400px;
+    height: 600px;
+  }
+}
