@@ -3,14 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* set the height to full viewport height */
+  height: 70vh;
+}
   
 .post-title {
     margin-bottom: 1rem; /* add some spacing between the heading and video */
 }
 
 .post-video {
-    width: 400px;
-    height: 600px;
-  }
+    width: auto;
+    height: 100%;
 }
