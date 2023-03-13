@@ -14,10 +14,8 @@ export default function SlugPage({ post }) {
   return (
     <div>
       <Head>
-        <title>Bytemaps | {post.title}</title>
-        <link rel="icon" href="favicon.ico" />
+        <title>{post.title} - Bytemaps</title>
       </Head>
-
       <main>
         <div className="siteHeader">
           <h1 className="title">{post.title}</h1>
@@ -56,6 +54,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post,
+      title: post.title,
     },
   }
 }
