@@ -1,10 +1,7 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Info({ page }) {
   return (
@@ -24,23 +21,39 @@ export default function Info({ page }) {
 
 export async function getStaticProps() {
   const GET_INFO_PAGE_BY_URI = gql`
-    query GetInfoPageByUri($uri: String) {
-      pageBy(uri: $uri) {
+    query GetInfoPageByUri($uri: ID!) {
+      page(idType: URI, id: $uri) {
         title
         content
       }
     }
   `
-  const { data } = await client.query({
-    query: GET_INFO_PAGE_BY_URI,
-    variables: {
-      uri: '/info',
-    },
-  })
+  try {
+    const { data } = await client.query({
+      query: GET_INFO_PAGE_BY_URI,
+      variables: {
+        uri: '/info',
+      },
+    })
 
-  return {
-    props: {
-      page: data.pageBy,
-    },
+    if (!data || !data.page) {
+      throw new Error('No data found')
+    }
+
+    return {
+      props: {
+        page: data.page,
+      },
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: {
+        page: {
+          title: 'Error',
+          content: '<p>An error occurred while loading the page</p>',
+        },
+      },
+    }
   }
 }
