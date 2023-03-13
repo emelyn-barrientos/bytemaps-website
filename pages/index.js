@@ -35,17 +35,25 @@ export async function getStaticProps() {
       }
     }
   `
-  const res = await client.query({
-    query: GET_ALL_POSTS,
-  })
+  try {
+    const res = await client.query({
+      query: GET_ALL_POSTS,
+    })
 
-  console.log('res: ', res)
+    const posts = res?.data?.posts?.nodes
 
-  const posts = res?.data?.posts?.nodes
-
-  return {
-    props: {
-      posts: posts || [],
-    },
+    return {
+      props: {
+        posts: posts || [],
+      },
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: {
+        posts: [],
+        error: 'An error occurred while fetching data',
+      },
+    }
   }
 }
