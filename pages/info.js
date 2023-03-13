@@ -1,17 +1,19 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/Post.module.scss'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
 export default function Info({ page }) {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>{page.title} - Bytemaps</title>
       </Head>
-      <h1>{page.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: page.content }} />
-    </div>
+      <div className={styles.container}>
+        <h1>{page.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: page.content }} />
+      </div>
+    </>
   )
 }
 
