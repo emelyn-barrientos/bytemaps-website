@@ -2,11 +2,9 @@
 
 This project is currently WIP!
 
-I'm creating a 
+I'm making a custom website for local Wellington artist, Bytemaps. The brief is to create a site where the artist can easily upload and post high res videos of his artwork as a curated digital gallery (Instagram compresses the video quality, thus the conception of this project).
 
-This project was a fantastic exercise for me in passing props effectively from parent to child components as well as handling multiple useState hooks. I'm interested in stretching this a bit further and creating multiple different forms with other prompts to request from the OpenAI API. 
-
-I'm currently troubleshooting a trim() method issue in production to actually getr the job description generated. the app works perfectly in playground thought! I will update when the live app is working again. 
+To challenge myself, I've decided to work with the Wordpress Headless CMS (so the client can upload content on his own) and integrate it with Next.js. So far, I'm loving learning how to use new tools like WPGraphQL and Apollo Client.
 
 ## TECH USED 👩🏽‍💻 ##
 - JavaScript
@@ -14,12 +12,12 @@ I'm currently troubleshooting a trim() method issue in production to actually ge
 - Next.js
 - Sass/SCSS
 - Wordpress Headless CMS
-- WGraphQL
-- Apollo Clienl
+- WPGraphQL
+- Apollo Client
 
 
 ## NEXT STEPS ▶️ ##
-- [ ] Create 'Previos' & 'Next' buttons for individual post pages
+- [ ] Create 'Previous' & 'Next' buttons for individual post pages
 - [ ] Deploy!
 
 I'll update this README.md when the project is successfully deployed for your viewing pleasure :)
