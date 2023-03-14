@@ -5,7 +5,7 @@ import styles from '../styles/Post.module.scss'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
-export default function SlugPage({ post }) {
+export default function SlugPage({ post, allPosts }) {
   const getVideoUrlFromContent = (content) => {
     const regex = /<video.*?src="(.*?)"/
     const match = regex.exec(content)
