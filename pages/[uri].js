@@ -3,7 +3,7 @@ import styles from '../styles/Post.module.scss'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
-export default function SlugPage({ post, postId }) {
+export default function SlugPage({ post, prevPostId, nextPostId }) {
   const getVideoUrlFromContent = (content) => {
     const regex = /<video.*?src="(.*?)"/
     const match = regex.exec(content)
@@ -95,7 +95,8 @@ export async function getStaticProps({ params }) {
     props: {
       post,
       title: post.title,
-      postId: post.id,
+      prevPostId,
+      nextPostId,
     },
   }
 }
