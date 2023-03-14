@@ -14,5 +14,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: rgb(16, 101, 16);
+  color: rgb(19, 129, 19);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; 
 }

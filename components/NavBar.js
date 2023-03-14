@@ -6,7 +6,9 @@ export default function NavBar() {
   return (
     <div>
       <nav className={styles['nav-bar']}>
-        <h1 className={styles['site-title']}>Bytemaps</h1>
+        <Link href="/">
+          <h1 className={styles['site-title']}>Bytemaps</h1>
+        </Link>
         <ul className={styles['nav-links']}>
           <Link href="/">
             <li className={styles['nav-list-item']}>Home</li>
