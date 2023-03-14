@@ -34,7 +34,7 @@ export default function SlugPage({ post, allPosts }) {
           postId={previousPost?.uri}
           postTitle={previousPost?.title}
         />
-        <NextButton />
+        <NextButton postId={nextPost?.uri} postTitle={nextPost?.title} />
       </div>
     </div>
   )
