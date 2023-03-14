@@ -68,9 +68,12 @@ export async function getStaticProps({ params }) {
     query: GET_ALL_POSTS_SLUGS,
   })
 
+  const allPosts = allPostsRes?.data?.posts?.nodes || []
+
   return {
     props: {
       post,
+      allPosts,
       title: post.title,
     },
   }
