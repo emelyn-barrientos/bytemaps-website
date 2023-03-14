@@ -2,16 +2,17 @@ import Head from 'next/head'
 import PreviousButton from '@/components/PreviousButton'
 import NextButton from '@/components/NextButton'
 import styles from '../styles/Post.module.scss'
+import { useEffect } from 'react'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
-export default function SlugPage({ post, allPosts }) {
-  const getVideoUrlFromContent = (content) => {
-    const regex = /<video.*?src="(.*?)"/
-    const match = regex.exec(content)
-    return match ? match[1] : null
-  }
+export function getVideoUrlFromContent(content) {
+  const regex = /<video.*?src="(.*?)"/
+  const match = regex.exec(content)
+  return match ? match[1] : null
+}
 
+export default function SlugPage({ post, allPosts }) {
   const videoUrl = getVideoUrlFromContent(post.content)
 
   const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
