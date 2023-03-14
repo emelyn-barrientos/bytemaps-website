@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import PreviousButton from '@/components/PreviousButton'
+import NextButton from '@/components/NextButton'
 import styles from '../styles/Post.module.scss'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
@@ -24,6 +26,8 @@ export default function SlugPage({ post }) {
             <source src={videoUrl} />
           </video>
         )}
+        <PreviousButton />
+        <NextButton />
       </div>
     </div>
   )
