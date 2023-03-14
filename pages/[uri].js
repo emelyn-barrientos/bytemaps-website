@@ -16,6 +16,7 @@ export default function SlugPage({ post, allPosts }) {
 
   const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
   const previousPost = allPosts[currentIndex - 1]
+  const nextPost = allPosts[currentIndex + 1]
 
   return (
     <div>
