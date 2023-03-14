@@ -80,6 +80,8 @@ export async function getStaticProps({ params }) {
     },
   })
 
+  const prevPostId = prevRes?.data?.post?.previous?.node?.databaseId
+
   return {
     props: {
       post,
