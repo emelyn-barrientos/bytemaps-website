@@ -14,10 +14,12 @@ export function getVideoUrlFromContent(content) {
 
 export default function SlugPage({ post, allPosts }) {
   const [videoUrl, setVideoUrl] = useState(getVideoUrlFromContent(post.content))
+  const [videoKey, setVideoKey] = useState(Date.now())
 
   useEffect(() => {
     const newVideoUrl = getVideoUrlFromContent(post.content)
     setVideoUrl(newVideoUrl)
+    setVideoKey(Date.now())
   }, [post])
 
   const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
@@ -32,7 +34,7 @@ export default function SlugPage({ post, allPosts }) {
       <div className={styles['post-container']}>
         <h1 className={styles['post-title']}>{post.title}</h1>
         {videoUrl && (
-          <video className={styles['post-video']} autoPlay loop>
+          <video key={videoKey} className={styles['post-video']} autoPlay loop>
             <source src={videoUrl} />
           </video>
         )}
