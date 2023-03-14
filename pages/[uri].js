@@ -2,7 +2,7 @@ import Head from 'next/head'
 import PreviousButton from '@/components/PreviousButton'
 import NextButton from '@/components/NextButton'
 import styles from '../styles/Post.module.scss'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
@@ -13,7 +13,12 @@ export function getVideoUrlFromContent(content) {
 }
 
 export default function SlugPage({ post, allPosts }) {
-  const videoUrl = getVideoUrlFromContent(post.content)
+  const [videoUrl, setVideoUrl] = useState(getVideoUrlFromContent(post.content))
+
+  useEffect(() => {
+    const newVideoUrl = getVideoUrlFromContent(post.content)
+    setVideoUrl(newVideoUrl)
+  }, [post])
 
   const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
   const previousPost = allPosts[currentIndex - 1]
