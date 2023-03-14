@@ -15,6 +15,7 @@ export default function SlugPage({ post, allPosts }) {
   const videoUrl = getVideoUrlFromContent(post.content)
 
   const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
+  const previousPost = allPosts[currentIndex - 1]
 
   return (
     <div>
