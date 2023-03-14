@@ -64,6 +64,9 @@ export async function getStaticProps({ params }) {
       }
     }
   `
+  const allPostsRes = await client.query({
+    query: GET_ALL_POSTS_SLUGS,
+  })
 
   return {
     props: {
