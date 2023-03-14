@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import PreviousButton from '@/components/PreviousButton'
-import NextButton from '@/components/NextButton'
 import styles from '../styles/Post.module.scss'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
-export default function SlugPage({ post, prevPostId, nextPostId }) {
+export default function SlugPage({ post }) {
   const getVideoUrlFromContent = (content) => {
     const regex = /<video.*?src="(.*?)"/
     const match = regex.exec(content)
@@ -15,7 +13,7 @@ export default function SlugPage({ post, prevPostId, nextPostId }) {
   const videoUrl = getVideoUrlFromContent(post.content)
 
   return (
-    <>
+    <div>
       <Head>
         <title>{post.title} - Bytemaps</title>
       </Head>
@@ -26,10 +24,8 @@ export default function SlugPage({ post, prevPostId, nextPostId }) {
             <source src={videoUrl} />
           </video>
         )}
-        <PreviousButton postId={prevPostId} />
-        <NextButton postId={nextPostId} />
       </div>
-    </>
+    </div>
   )
 }
 
@@ -53,54 +49,11 @@ export async function getStaticProps({ params }) {
   })
 
   const post = res?.data?.post
-  const postId = post?.id
-
-  const GET_PREVIOUS_POST_ID = gql`
-    query GetPreviousPostId($id: ID!) {
-      post(id: $id, idType: DATABASE_ID) {
-        previous {
-          node {
-            databaseId
-          }
-        }
-      }
-    }
-  `
-  const GET_NEXT_POST_ID = gql`
-    query GetNextPostId($id: ID!) {
-      post(id: $id, idType: DATABASE_ID) {
-        next {
-          node {
-            databaseId
-          }
-        }
-      }
-    }
-  `
-  const prevRes = await client.query({
-    query: GET_PREVIOUS_POST_ID,
-    variables: {
-      id: postId,
-    },
-  })
-
-  const prevPostId = prevRes?.data?.post?.previous?.node?.databaseId
-
-  const nextRes = await client.query({
-    query: GET_NEXT_POST_ID,
-    variables: {
-      id: postId,
-    },
-  })
-
-  const nextPostId = nextRes?.data?.post?.next?.node?.databaseId
 
   return {
     props: {
       post,
       title: post.title,
-      prevPostId,
-      nextPostId,
     },
   }
 }
