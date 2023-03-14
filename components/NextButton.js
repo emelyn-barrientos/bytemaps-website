@@ -4,7 +4,7 @@ export default function NextButton({ nextPostUri }) {
   return (
     <div>
       {nextPostUri ? (
-        <Link href={`/posts${nextPostUri}`}>
+        <Link href={`${nextPostUri}`}>
           <h2>Next</h2>
         </Link>
       ) : null}
