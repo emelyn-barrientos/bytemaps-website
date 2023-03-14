@@ -2,17 +2,29 @@ import Head from 'next/head'
 import PreviousButton from '@/components/PreviousButton'
 import NextButton from '@/components/NextButton'
 import styles from '../styles/Post.module.scss'
+import { useState, useEffect } from 'react'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
 
-export default function SlugPage({ post }) {
-  const getVideoUrlFromContent = (content) => {
-    const regex = /<video.*?src="(.*?)"/
-    const match = regex.exec(content)
-    return match ? match[1] : null
-  }
+export function getVideoUrlFromContent(content) {
+  const regex = /<video.*?src="(.*?)"/
+  const match = regex.exec(content)
+  return match ? match[1] : null
+}
 
-  const videoUrl = getVideoUrlFromContent(post.content)
+export default function SlugPage({ post, allPosts }) {
+  const [videoUrl, setVideoUrl] = useState(getVideoUrlFromContent(post.content))
+  const [videoKey, setVideoKey] = useState(Date.now())
+
+  useEffect(() => {
+    const newVideoUrl = getVideoUrlFromContent(post.content)
+    setVideoUrl(newVideoUrl)
+    setVideoKey(Date.now())
+  }, [post])
+
+  const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
+  const previousPost = allPosts[currentIndex - 1]
+  const nextPost = allPosts[currentIndex + 1]
 
   return (
     <div>
@@ -22,12 +34,12 @@ export default function SlugPage({ post }) {
       <div className={styles['post-container']}>
         <h1 className={styles['post-title']}>{post.title}</h1>
         {videoUrl && (
-          <video className={styles['post-video']} autoPlay loop>
+          <video key={videoKey} className={styles['post-video']} autoPlay loop>
             <source src={videoUrl} />
           </video>
         )}
-        <PreviousButton />
-        <NextButton />
+        {previousPost && <PreviousButton previousPostUri={previousPost?.uri} />}
+        {nextPost && <NextButton nextPostUri={nextPost?.uri} />}
       </div>
     </div>
   )
@@ -54,9 +66,26 @@ export async function getStaticProps({ params }) {
 
   const post = res?.data?.post
 
+  const GET_ALL_POSTS_SLUGS = gql`
+    query GetAllPostsSlugs {
+      posts {
+        nodes {
+          uri
+          title
+        }
+      }
+    }
+  `
+  const allPostsRes = await client.query({
+    query: GET_ALL_POSTS_SLUGS,
+  })
+
+  const allPosts = allPostsRes?.data?.posts?.nodes || []
+
   return {
     props: {
       post,
+      allPosts,
       title: post.title,
     },
   }
