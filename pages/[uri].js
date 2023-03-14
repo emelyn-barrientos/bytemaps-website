@@ -82,6 +82,13 @@ export async function getStaticProps({ params }) {
 
   const prevPostId = prevRes?.data?.post?.previous?.node?.databaseId
 
+  const nextRes = await client.query({
+    query: GET_NEXT_POST_ID,
+    variables: {
+      id: postId,
+    },
+  })
+
   return {
     props: {
       post,
