@@ -73,6 +73,12 @@ export async function getStaticProps({ params }) {
       }
     }
   `
+  const prevRes = await client.query({
+    query: GET_PREVIOUS_POST_ID,
+    variables: {
+      id: postId,
+    },
+  })
 
   return {
     props: {
