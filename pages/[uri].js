@@ -89,6 +89,8 @@ export async function getStaticProps({ params }) {
     },
   })
 
+  const nextPostId = nextRes?.data?.post?.next?.node?.databaseId
+
   return {
     props: {
       post,
