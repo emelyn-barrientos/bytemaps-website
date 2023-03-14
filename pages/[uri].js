@@ -30,8 +30,8 @@ export default function SlugPage({ post, allPosts }) {
             <source src={videoUrl} />
           </video>
         )}
-        <PreviousButton previousPostUri={previousPost?.uri} />
-        <NextButton nextPostUri={nextPost?.uri} />
+        {previousPost && <PreviousButton previousPostUri={previousPost?.uri} />}
+        {nextPost && <NextButton nextPostUri={nextPost?.uri} />}
       </div>
     </div>
   )
