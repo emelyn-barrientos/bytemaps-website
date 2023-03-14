@@ -49,6 +49,30 @@ export async function getStaticProps({ params }) {
   })
 
   const post = res?.data?.post
+  const postId = post?.id
+
+  const GET_PREVIOUS_POST_ID = gql`
+    query GetPreviousPostId($id: ID!) {
+      post(id: $id, idType: DATABASE_ID) {
+        previous {
+          node {
+            databaseId
+          }
+        }
+      }
+    }
+  `
+  const GET_NEXT_POST_ID = gql`
+    query GetNextPostId($id: ID!) {
+      post(id: $id, idType: DATABASE_ID) {
+        next {
+          node {
+            databaseId
+          }
+        }
+      }
+    }
+  `
 
   return {
     props: {
