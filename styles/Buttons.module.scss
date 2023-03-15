@@ -1,0 +1,42 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  .button:first-child {
+    margin-right: auto;
+  }
+}
+
+.button {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  h2 {
+    color: black;
+
+  }
+}
+  
+.button:hover {
+  background-color: black;
+
+  h2 {
+    color: white;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

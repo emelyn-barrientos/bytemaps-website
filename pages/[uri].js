@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import PreviousButton from '@/components/PreviousButton'
 import NextButton from '@/components/NextButton'
-import styles from '../styles/Post.module.scss'
+import postStyles from '../styles/Post.module.scss'
+import buttonsStyles from '../styles/Buttons.module.scss'
 import { useState, useEffect } from 'react'
 import { client } from '../lib/apolloClient'
 import { gql } from '@apollo/client'
@@ -31,13 +32,20 @@ export default function SlugPage({ post, allPosts }) {
       <Head>
         <title>{post.title} - Bytemaps</title>
       </Head>
-      <div className={styles['post-container']}>
-        <h1 className={styles['post-title']}>{post.title}</h1>
+      <div className={postStyles['post-container']}>
+        <h1 className={postStyles['post-title']}>{post.title}</h1>
         {videoUrl && (
-          <video key={videoKey} className={styles['post-video']} autoPlay loop>
+          <video
+            key={videoKey}
+            className={postStyles['post-video']}
+            autoPlay
+            loop
+          >
             <source src={videoUrl} />
           </video>
         )}
+      </div>
+      <div className={buttonsStyles['button-container']}>
         {previousPost && <PreviousButton previousPostUri={previousPost?.uri} />}
         {nextPost && <NextButton nextPostUri={nextPost?.uri} />}
       </div>
