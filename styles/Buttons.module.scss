@@ -2,11 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+
+  .button:first-child {
+    margin-right: auto;
+  }
 }
 
 .button {
