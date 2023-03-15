@@ -15,9 +15,22 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+
+  h2 {
+    color: black;
+
+  }
 }
   
 .button:hover {
-  background-color: rgb(19, 129, 19);
-  color: white;
+  background-color: black;
+
+  h2 {
+    color: white;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
