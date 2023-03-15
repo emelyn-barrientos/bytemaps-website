@@ -44,12 +44,10 @@ export default function SlugPage({ post, allPosts }) {
             <source src={videoUrl} />
           </video>
         )}
-        <div className={buttonsStyles['button-container']}>
-          {previousPost && (
-            <PreviousButton previousPostUri={previousPost?.uri} />
-          )}
-          {nextPost && <NextButton nextPostUri={nextPost?.uri} />}
-        </div>
+      </div>
+      <div className={buttonsStyles['button-container']}>
+        {previousPost && <PreviousButton previousPostUri={previousPost?.uri} />}
+        {nextPost && <NextButton nextPostUri={nextPost?.uri} />}
       </div>
     </div>
   )
