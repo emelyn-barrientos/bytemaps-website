@@ -15,7 +15,8 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 
 
 ## NEXT STEPS ▶️ ##
-- [ ] Create 'Previous' & 'Next' buttons for individual post pages
+- [ ] Reconnect 'Previous' & 'Next' buttons for individual post pages
+- [ ] Clean up and refactor code
 - [X] Deploy!
 
 I'll update this README.md when the project is successfully deployed for your viewing pleasure :)
