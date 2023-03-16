@@ -1,9 +1,9 @@
-import Grid from '@/components/Grid'
+import AllPosts from '@/components/AllPosts'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
 
 export default function Home({ posts }) {
-  return <Grid posts={posts} />
+  return <AllPosts posts={posts} />
 }
 
 export async function getStaticProps() {
