@@ -1,17 +1,25 @@
 import Grid from '@/components/Grid'
-import { client } from '../lib/apolloClient'
-import { gql } from '@apollo/client'
+import { contentfulClient } from '@/lib/contentfulClient'
+import { parseMedia } from '@/utils/parseMedia'
 
 export default function Home({ posts }) {
   return <Grid posts={posts} />
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/wp/v2/posts`
-  )
-  const posts = []
-  console.log('res: ', res)
+  const entries = await contentfulClient.getEntries({
+    content_type: 'post',
+  })
+
+  const posts = entries.items.map((item) => {
+    return {
+      title: item.fields.title,
+      uri: item.fields.url,
+      thumbnail: parseMedia(item.fields.thumbnail),
+      id: item.sys.id,
+    }
+  })
+
   return {
     props: {
       posts: posts || [],
