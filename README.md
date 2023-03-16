@@ -11,13 +11,11 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 - React.js
 - Next.js
 - Sass/SCSS
-- Wordpress Headless CMS
-- WPGraphQL
-- Apollo Client
+- Contentful Headless CMS
 
 
 ## NEXT STEPS ▶️ ##
 - [ ] Create 'Previous' & 'Next' buttons for individual post pages
-- [ ] Deploy!
+- [X] Deploy!
 
 I'll update this README.md when the project is successfully deployed for your viewing pleasure :)
