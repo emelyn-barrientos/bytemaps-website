@@ -1,8 +1,8 @@
 import React from 'react'
 import PostCard from './PostCard'
-import styles from '../styles/Grid.module.scss'
+import styles from '../styles/AllPosts.module.scss'
 
-export default function Grid({ posts }) {
+export default function AllPosts({ posts }) {
   return (
     <div className={styles['grid-container']}>
       {posts &&

@@ -12,10 +12,16 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 - Next.js
 - Sass/SCSS
 - Contentful Headless CMS
+- Webhooks
+- Vercel (deployment)
 
 
 ## NEXT STEPS ▶️ ##
 - [ ] Reconnect 'Previous' & 'Next' buttons for individual post pages
+- [ ] Reconnect info.js page with Contentful Headless CMS
+- [ ] Add next/fonts to project
+- [ ] Re-organize file structure
+- [ ] Finishing styling
 - [ ] Clean up and refactor code
 - [X] Deploy!
 
