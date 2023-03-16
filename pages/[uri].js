@@ -73,6 +73,7 @@ export async function getStaticProps({ params }) {
   })
 
   const post = res?.data?.post
+  console.log('post: ', post)
 
   const GET_ALL_POSTS_SLUGS = gql`
     query GetAllPostsSlugs {
