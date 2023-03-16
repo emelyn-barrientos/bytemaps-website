@@ -4,16 +4,8 @@ import NextButton from '@/components/NextButton'
 import postStyles from '../styles/Post.module.scss'
 import buttonsStyles from '../styles/Buttons.module.scss'
 import { useState, useEffect } from 'react'
-import { client } from '../lib/apolloClient'
-import { gql } from '@apollo/client'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
-
-export function getVideoUrlFromContent(content) {
-  const regex = /<video.*?src="(.*?)"/
-  const match = regex.exec(content)
-  return match ? match[1] : null
-}
 
 export default function SlugPage({ post, allPosts }) {
   // const [videoUrl, setVideoUrl] = useState(getVideoUrlFromContent(post.content))
