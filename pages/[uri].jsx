@@ -7,7 +7,11 @@ import { useState, useEffect } from 'react'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
 
-export default function SlugPage({ post, allPosts }) {
+export default function SlugPage({
+  currentPost,
+  previousPostUri,
+  nextPostUri,
+}) {
   // const [videoUrl, setVideoUrl] = useState(getVideoUrlFromContent(post.content))
   // const [videoKey, setVideoKey] = useState(Date.now())
 
@@ -17,23 +21,18 @@ export default function SlugPage({ post, allPosts }) {
   //   setVideoKey(Date.now())
   // }, [post])
 
-  // do below is getStaticProps!
-  // const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
-  // const previousPost = allPosts[currentIndex - 1]
-  // const nextPost = allPosts[currentIndex + 1]
-
   return (
     <div>
       <Head>
-        <title>{post.title} - Bytemaps</title>
+        <title>{currentPost.title} - Bytemaps</title>
       </Head>
       <div className={postStyles['post-container']}>
-        <h1 className={postStyles['post-title']}>{post.title}</h1>
+        <h1 className={postStyles['post-title']}>{currentPost.title}</h1>
         <iframe
           className={postStyles['post-video']}
           width="560"
           height="315"
-          src={post.youTubeUrl}
+          src={currentPost.youTubeUrl}
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -41,8 +40,8 @@ export default function SlugPage({ post, allPosts }) {
         ></iframe>
       </div>
       <div className={buttonsStyles['button-container']}>
-        <PreviousButton />
-        <NextButton />
+        <PreviousButton previousPostUri={previousPostUri} />
+        <NextButton nextPostUri={nextPostUri} />
       </div>
     </div>
   )
@@ -65,9 +64,16 @@ export async function getStaticProps({ params }) {
     youTubeUrl: entry.fields.youTubeUrl,
   }
 
+  const uris = entries.items.map((entry) => entry.fields.url)
+  const currentIndex = uris.indexOf(post.uri)
+  const previousPostUri = uris[currentIndex - 1] || null
+  const nextPostUri = uris[currentIndex + 1] || null
+
   return {
     props: {
-      post: post || [],
+      currentPost: post,
+      previousPostUri,
+      nextPostUri,
     },
   }
 }
