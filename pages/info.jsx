@@ -9,7 +9,7 @@ export default function Info({ page }) {
         <title>{page.title} - Bytemaps</title>
       </Head>
       <div className={styles['info-container']}>
-        <h2>{page.textBlock}</h2>
+        <p className={styles['info-text']}>{page.textBlock}</p>
       </div>
     </>
   )
