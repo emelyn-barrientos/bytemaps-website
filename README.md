@@ -19,7 +19,7 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 ## NEXT STEPS ▶️ ##
 - [ ] Reconnect 'Previous' & 'Next' buttons for individual post pages
 - [X] Reconnect info.js page with Contentful Headless CMS
-- [ ] Add next/fonts to project
+- [X] Add next/fonts to project
 - [ ] Re-organize file structure
 - [ ] Finishing styling
 - [ ] Clean up and refactor code
