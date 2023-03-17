@@ -1,12 +1,18 @@
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
 import '../styles/globals.scss'
+import { DM_Mono } from 'next/font/google'
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+})
 
 export default function App({ Component, pageProps }) {
   const { title } = pageProps
 
   return (
-    <>
+    <main className={dmMono.className}>
       <Head>
         <meta
           name="description"
@@ -18,6 +24,6 @@ export default function App({ Component, pageProps }) {
       </Head>
       <NavBar />
       <Component {...pageProps} />
-    </>
+    </main>
   )
 }
