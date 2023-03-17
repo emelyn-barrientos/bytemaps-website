@@ -1,14 +1,10 @@
 import Link from 'next/link'
 import styles from '../styles/Buttons.module.scss'
 
-export default function PreviousButton({ previousPostUri }) {
+export default function PreviousButton() {
   return (
-    <div className={styles['button']}>
-      {previousPostUri ? (
-        <Link href={`${previousPostUri}`}>
-          <h2>Previous</h2>
-        </Link>
-      ) : null}
-    </div>
+    <Link href={'/'}>
+      <h2 className={styles['button']}>Post</h2>
+    </Link>
   )
 }
