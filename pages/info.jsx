@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Info.module.scss'
-import { client } from '../lib/apolloClient'
-import { gql } from '@apollo/client'
+import Link from 'next/link'
+import { contentfulClient } from '@/lib/contentfulClient'
 
 export default function Info({ page }) {
   return (
@@ -10,50 +10,30 @@ export default function Info({ page }) {
         <title>{page.title} - Bytemaps</title>
       </Head>
       <div className={styles['info-container']}>
-        <div
-          className={styles['info-content']}
-          dangerouslySetInnerHTML={{ __html: page.content }}
-        />
+        <p className={styles['info-text']}>
+          {page.textBlock}
+          <Link href="mailto:bytemaps@gmail.com">{page.emailAddress}</Link>
+        </p>
       </div>
     </>
   )
 }
 
-export async function getStaticProps() {
-  const GET_INFO_PAGE_BY_URI = gql`
-    query GetInfoPageByUri($uri: ID!) {
-      page(idType: URI, id: $uri) {
-        title
-        content
-      }
-    }
-  `
-  try {
-    const { data } = await client.query({
-      query: GET_INFO_PAGE_BY_URI,
-      variables: {
-        uri: '/info',
-      },
-    })
+export async function getStaticProps({ params }) {
+  const entry = await contentfulClient.getEntry({
+    content_type: 'page',
+  })
 
-    if (!data || !data.page) {
-      throw new Error('No data found')
-    }
+  const page = {
+    title: entry.fields.title,
+    textBlock: entry.fields.textBlock,
+    url: entry.fields.url,
+    emailAddress: entry.fields.emailAddress,
+  }
 
-    return {
-      props: {
-        page: data.page,
-      },
-    }
-  } catch (error) {
-    console.error(error)
-    return {
-      props: {
-        page: {
-          title: 'Error',
-          content: '<p>An error occurred while loading the page</p>',
-        },
-      },
-    }
+  return {
+    props: {
+      page: page || [],
+    },
   }
 }

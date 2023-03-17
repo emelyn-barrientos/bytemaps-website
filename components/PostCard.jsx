@@ -4,7 +4,6 @@ import Link from 'next/link'
 import styles from '../styles/PostCard.module.scss'
 
 export default function PostCard({ post }) {
-  console.log('post: ', post)
   return (
     <div key={post.id} className={styles['post-card']}>
       <Link href={post.uri}>
