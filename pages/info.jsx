@@ -11,7 +11,7 @@ export default function Info({ page }) {
       </Head>
       <div className={styles['info-container']}>
         <p className={styles['info-text']}>
-          {page.textBlock}
+          {page.textBlock}{' '}
           <Link href="mailto:bytemaps@gmail.com">{page.emailAddress}</Link>
         </p>
       </div>
