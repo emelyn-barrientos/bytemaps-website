@@ -3,37 +3,42 @@ import styles from '../styles/Info.module.scss'
 import Link from 'next/link'
 import { contentfulClient } from '@/lib/contentfulClient'
 
-export default function Info({ page }) {
+export default function Info({ infoPage }) {
   return (
     <>
       <Head>
-        <title>{page.title} - Bytemaps</title>
+        <title>{infoPage.title} - Bytemaps</title>
       </Head>
       <div className={styles['info-container']}>
         <p className={styles['info-text']}>
-          {page.textBlock}{' '}
-          <Link href="mailto:bytemaps@gmail.com">{page.emailAddress}</Link>
+          {infoPage.textBlock}{' '}
+          <Link href="mailto:bytemaps@gmail.com">{infoPage.emailAddress}</Link>
         </p>
       </div>
     </>
   )
 }
 
-export async function getStaticProps({ params }) {
-  const entry = await contentfulClient.getEntry({
+export async function getStaticProps() {
+  const entries = await contentfulClient.getEntries({
     content_type: 'page',
   })
 
-  const page = {
-    title: entry.fields.title,
-    textBlock: entry.fields.textBlock,
-    url: entry.fields.url,
-    emailAddress: entry.fields.emailAddress,
+  const infoPageEntry = entries.items.find(
+    (entry) => entry.fields.title === 'Info'
+  )
+
+  const infoPage = {
+    title: infoPageEntry.fields.title,
+    textBlock: infoPageEntry.fields.textBlock,
+    url: infoPageEntry.fields.url,
+    emailAddress: infoPageEntry.fields.emailAddress,
   }
 
+  console.log('infoPage: ', infoPage)
   return {
     props: {
-      page: page || [],
+      infoPage: infoPage || [],
     },
   }
 }
