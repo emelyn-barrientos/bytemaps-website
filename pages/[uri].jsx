@@ -6,11 +6,7 @@ import buttonsStyles from '../styles/Buttons.module.scss'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
 
-export default function SlugPage({
-  currentPost,
-  previousPostUri,
-  nextPostUri,
-}) {
+export default function SlugPage({ currentPost }) {
   return (
     <div>
       <Head>
@@ -30,8 +26,8 @@ export default function SlugPage({
         ></iframe>
       </div>
       <div className={buttonsStyles['button-container']}>
-        <PreviousButton previousPostUri={previousPostUri} />
-        <NextButton nextPostUri={nextPostUri} />
+        <PreviousButton />
+        <NextButton />
       </div>
     </div>
   )
@@ -54,16 +50,11 @@ export async function getStaticProps({ params }) {
     youTubeUrl: entry.fields.youTubeUrl,
   }
 
-  const uris = entries.items.map((entry) => entry.fields.url)
-  const currentIndex = uris.indexOf(post.uri)
-  const previousPostUri = uris[currentIndex - 1] || null
-  const nextPostUri = uris[currentIndex + 1] || null
-
   return {
     props: {
       currentPost: post,
-      previousPostUri,
-      nextPostUri,
+      // previousPost,
+      // nextPost,
     },
   }
 }
