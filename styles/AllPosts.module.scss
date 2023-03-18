@@ -19,7 +19,7 @@
 }
 
 .grid-item {
-  flex: 1 1 30%;
+  flex:  0 1 calc((100% - 6rem) / 3);
   box-sizing: border-box;
   padding: 0rem;
   margin: 0rem;
