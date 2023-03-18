@@ -3,47 +3,32 @@ import PreviousButton from '@/components/PreviousButton'
 import NextButton from '@/components/NextButton'
 import postStyles from '../styles/Post.module.scss'
 import buttonsStyles from '../styles/Buttons.module.scss'
-import { useState, useEffect } from 'react'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
 
-export default function SlugPage({ post, allPosts }) {
-  // const [videoUrl, setVideoUrl] = useState(getVideoUrlFromContent(post.content))
-  // const [videoKey, setVideoKey] = useState(Date.now())
-
-  // useEffect(() => {
-  //   const newVideoUrl = getVideoUrlFromContent(post.content)
-  //   setVideoUrl(newVideoUrl)
-  //   setVideoKey(Date.now())
-  // }, [post])
-
-  // do below is getStaticProps!
-  // const currentIndex = allPosts.findIndex((p) => p.uri === post.uri)
-  // const previousPost = allPosts[currentIndex - 1]
-  // const nextPost = allPosts[currentIndex + 1]
-
+export default function SlugPage({ currentPost, previousPost, nextPost }) {
   return (
     <div>
       <Head>
-        <title>{post.title} - Bytemaps</title>
+        <title>{currentPost.title} - Bytemaps</title>
       </Head>
       <div className={postStyles['post-container']}>
-        <h1 className={postStyles['post-title']}>{post.title}</h1>
+        <h1 className={postStyles['post-title']}>{currentPost.title}</h1>
         <iframe
           className={postStyles['post-video']}
-          width="560"
-          height="315"
-          src={post.youTubeUrl}
+          width="auto"
+          height="auto"
+          src={currentPost.youTubeUrl}
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
-      <div className={buttonsStyles['button-container']}>
-        <PreviousButton />
-        <NextButton />
-      </div>
+      {/* <div className={buttonsStyles['button-container']}>
+        <PreviousButton uri={previousPost.uri} />
+        <NextButton uri={nextPost.uri} />
+      </div> */}
     </div>
   )
 }
@@ -57,7 +42,7 @@ export async function getStaticProps({ params }) {
 
   const entry = entries.items[0]
 
-  const post = {
+  const currentPost = {
     title: entry.fields.title,
     uri: entry.fields.url,
     thumbnail: parseMedia(entry.fields.thumbnail),
@@ -65,9 +50,39 @@ export async function getStaticProps({ params }) {
     youTubeUrl: entry.fields.youTubeUrl,
   }
 
+  // const prevEntry = await contentfulClient.getEntries({
+  //   content_type: 'post',
+  //   order: '-fields.date',
+  //   'fields.date[lt]': entry.fields.date,
+  //   limit: 1,
+  // })
+
+  // const previousPost = prevEntry.items.length
+  //   ? {
+  //       title: prevEntry.items[0].fields.title,
+  //       uri: prevEntry.items[0].fields.url,
+  //     }
+  //   : null
+
+  // const nextEntry = await contentfulClient.getEntries({
+  //   content_type: 'post',
+  //   order: 'fields.date',
+  //   'fields.date[gt]': entry.fields.date,
+  //   limit: 1,
+  // })
+
+  // const nextPost = nextEntry.items.length
+  //   ? {
+  //       title: nextEntry.items[0].fields.title,
+  //       uri: nextEntry.items[0].fields.url,
+  //     }
+  //   : null
+
   return {
     props: {
-      post: post || [],
+      currentPost,
+      // previousPost,
+      // nextPost,
     },
   }
 }
@@ -86,76 +101,3 @@ export async function getStaticPaths() {
     fallback: 'blocking',
   }
 }
-
-// export async function getStaticProps({ params }) {
-//   const GET_POST_BY_URI = gql`
-//     query GetPostByUri($id: ID!) {
-//       post(id: $id, idType: URI) {
-//         title
-//         id
-//         date
-//         uri
-//         content
-//       }
-//     }
-//   `
-//   const res = await client.query({
-//     query: GET_POST_BY_URI,
-//     variables: {
-//       id: params.uri,
-//     },
-//   })
-
-//   const post = res?.data?.post
-//   console.log('post: ', post)
-
-//   const GET_ALL_POSTS_SLUGS = gql`
-//     query GetAllPostsSlugs {
-//       posts {
-//         nodes {
-//           uri
-//           title
-//         }
-//       }
-//     }
-//   `
-//   const allPostsRes = await client.query({
-//     query: GET_ALL_POSTS_SLUGS,
-//   })
-
-//   const allPosts = allPostsRes?.data?.posts?.nodes || []
-
-//   return {
-//     props: {
-//       post,
-//       allPosts,
-//       title: post.title,
-//     },
-//   }
-// }
-
-// export async function getStaticPaths() {
-//   const GET_ALL_POSTS_SLUGS = gql`
-//     query GetAllPostsSlugs {
-//       posts {
-//         nodes {
-//           uri
-//         }
-//       }
-//     }
-//   `
-//   const res = await client.query({
-//     query: GET_ALL_POSTS_SLUGS,
-//   })
-
-//   const posts = res?.data?.posts?.nodes || []
-
-//   const paths = posts.map((post) => ({
-//     params: { uri: post.uri },
-//   }))
-
-//   return {
-//     paths,
-//     fallback: 'blocking',
-//   }
-// }
