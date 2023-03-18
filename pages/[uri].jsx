@@ -6,7 +6,7 @@ import buttonsStyles from '../styles/Buttons.module.scss'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
 
-export default function SlugPage({ currentPost }) {
+export default function SlugPage({ currentPost, previousPost, nextPost }) {
   return (
     <div>
       <Head>
@@ -16,19 +16,19 @@ export default function SlugPage({ currentPost }) {
         <h1 className={postStyles['post-title']}>{currentPost.title}</h1>
         <iframe
           className={postStyles['post-video']}
-          width="560"
-          height="315"
+          width="auto"
+          height="auto"
           src={currentPost.youTubeUrl}
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
-      <div className={buttonsStyles['button-container']}>
-        <PreviousButton />
-        <NextButton />
-      </div>
+      {/* <div className={buttonsStyles['button-container']}>
+        <PreviousButton uri={previousPost.uri} />
+        <NextButton uri={nextPost.uri} />
+      </div> */}
     </div>
   )
 }
@@ -42,7 +42,7 @@ export async function getStaticProps({ params }) {
 
   const entry = entries.items[0]
 
-  const post = {
+  const currentPost = {
     title: entry.fields.title,
     uri: entry.fields.url,
     thumbnail: parseMedia(entry.fields.thumbnail),
@@ -50,9 +50,37 @@ export async function getStaticProps({ params }) {
     youTubeUrl: entry.fields.youTubeUrl,
   }
 
+  // const prevEntry = await contentfulClient.getEntries({
+  //   content_type: 'post',
+  //   order: '-fields.date',
+  //   'fields.date[lt]': entry.fields.date,
+  //   limit: 1,
+  // })
+
+  // const previousPost = prevEntry.items.length
+  //   ? {
+  //       title: prevEntry.items[0].fields.title,
+  //       uri: prevEntry.items[0].fields.url,
+  //     }
+  //   : null
+
+  // const nextEntry = await contentfulClient.getEntries({
+  //   content_type: 'post',
+  //   order: 'fields.date',
+  //   'fields.date[gt]': entry.fields.date,
+  //   limit: 1,
+  // })
+
+  // const nextPost = nextEntry.items.length
+  //   ? {
+  //       title: nextEntry.items[0].fields.title,
+  //       uri: nextEntry.items[0].fields.url,
+  //     }
+  //   : null
+
   return {
     props: {
-      currentPost: post,
+      currentPost,
       // previousPost,
       // nextPost,
     },
