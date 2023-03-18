@@ -8,7 +8,8 @@
   gap: 4rem 2rem;
 
   @media screen and (max-width: 1024px) {
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   @media screen and (max-width: 768px) {
@@ -19,16 +20,16 @@
 }
 
 .grid-item {
-  flex:  0 1 calc((100% - 6rem) / 3);
+  flex: 0 1 calc((100% - 6rem) / 3);
   box-sizing: border-box;
   padding: 0rem;
   margin: 0rem;
 
   @media screen and (max-width: 1024px) {
-    flex: 1 1 40%;
+    flex: 0 1 calc((100% - 4rem) / 2);
   }
 
   @media screen and (max-width: 768px) {
-    flex: 1 1 100%;
+    flex: 0 1 calc(100% - 2rem);
   }
 }
