@@ -65,20 +65,21 @@ export async function getStaticProps({ params }) {
       }
     : null
 
-  // const nextEntry = await contentfulClient.getEntries({
-  //   content_type: 'post',
-  //   order: 'fields.date',
-  //   'fields.date[gt]': entry.fields.date,
-  //   limit: 1,
-  // })
+  const nextEntry = await contentfulClient.getEntries({
+    content_type: 'post',
+    order: 'fields.date',
+    'fields.date[gt]': entry.fields.date,
+    limit: 1,
+  })
 
-  // const nextPost = nextEntry.items.length
-  //   ? {
-  //       title: nextEntry.items[0].fields.title,
-  //       uri: nextEntry.items[0].fields.url,
-  //     }
-  //   : null
+  const nextPost = nextEntry.items.length
+    ? {
+        title: nextEntry.items[0].fields.title,
+        uri: nextEntry.items[0].fields.url,
+      }
+    : null
 
+  v
   return {
     props: {
       currentPost,
