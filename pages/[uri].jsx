@@ -19,7 +19,7 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
             className={postStyles['post-video']}
             width="100%"
             height="56.25%"
-            src={`${currentPost.youTubeUrl}?&autoplay=1&modestbranding=1&rel=0&showinfo=0`}
+            src={`${currentPost.youTubeUrl}?&autoplay=1&modestbranding=1&rel=0&showinfo=0&vq=2160p&quality=highest`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
