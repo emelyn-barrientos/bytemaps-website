@@ -2,7 +2,7 @@ import Head from 'next/head'
 import PreviousButton from '@/components/PreviousButton'
 import NextButton from '@/components/NextButton'
 import postStyles from '../styles/Post.module.scss'
-import buttonsStyles from '../styles/Buttons.module.scss'
+import buttonStyles from '../styles/Buttons.module.scss'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
 
@@ -26,9 +26,9 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
           />
         </div>
       </div>
-      <div className={buttonsStyles['button-container']}>
-        <PreviousButton uri={previousPost && previousPost.uri} />
-        <NextButton uri={nextPost && nextPost.uri} />
+      <div className={buttonStyles['button-container']}>
+        <PreviousButton previousPostUri={previousPost && previousPost.uri} />
+        <NextButton nextPostUri={nextPost && nextPost.uri} />
       </div>
     </div>
   )
