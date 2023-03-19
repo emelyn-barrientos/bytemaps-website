@@ -17,8 +17,11 @@ export async function getStaticProps() {
       uri: item.fields.url,
       thumbnail: parseMedia(item.fields.thumbnail),
       id: item.sys.id,
+      createdAt: item.sys.createdAt,
     }
   })
+
+  posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
   return {
     props: {
