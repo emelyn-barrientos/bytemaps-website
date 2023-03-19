@@ -53,8 +53,8 @@ export async function getStaticProps({ params }) {
 
   const prevEntry = await contentfulClient.getEntries({
     content_type: 'post',
-    order: '-fields.date',
-    'fields.date[lt]': entry.fields.date,
+    order: '-sys.createdAt',
+    'sys.createdAt[lt]': entry.sys.createdAt,
     limit: 1,
   })
 
@@ -67,8 +67,8 @@ export async function getStaticProps({ params }) {
 
   const nextEntry = await contentfulClient.getEntries({
     content_type: 'post',
-    order: 'fields.date',
-    'fields.date[gt]': entry.fields.date,
+    order: 'sys.createdAt',
+    'sys.createdAt[gt]': entry.sys.createdAt,
     limit: 1,
   })
 
@@ -79,7 +79,6 @@ export async function getStaticProps({ params }) {
       }
     : null
 
-  v
   return {
     props: {
       currentPost,
