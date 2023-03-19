@@ -18,7 +18,7 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
           <iframe
             className={postStyles['post-video']}
             width="100%"
-            height="56.25%"
+            height="100%"
             src={`${currentPost.youTubeUrl}?&autoplay=1&modestbranding=1&rel=0&showinfo=0&vq=2160p&quality=highest`}
             title="YouTube video player"
             frameBorder="0"
@@ -51,19 +51,19 @@ export async function getStaticProps({ params }) {
     youTubeUrl: entry.fields.youTubeUrl,
   }
 
-  // const prevEntry = await contentfulClient.getEntries({
-  //   content_type: 'post',
-  //   order: '-fields.date',
-  //   'fields.date[lt]': entry.fields.date,
-  //   limit: 1,
-  // })
+  const prevEntry = await contentfulClient.getEntries({
+    content_type: 'post',
+    order: '-fields.date',
+    'fields.date[lt]': entry.fields.date,
+    limit: 1,
+  })
 
-  // const previousPost = prevEntry.items.length
-  //   ? {
-  //       title: prevEntry.items[0].fields.title,
-  //       uri: prevEntry.items[0].fields.url,
-  //     }
-  //   : null
+  const previousPost = prevEntry.items.length
+    ? {
+        title: prevEntry.items[0].fields.title,
+        uri: prevEntry.items[0].fields.url,
+      }
+    : null
 
   // const nextEntry = await contentfulClient.getEntries({
   //   content_type: 'post',
