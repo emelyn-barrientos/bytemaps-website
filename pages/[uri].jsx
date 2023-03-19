@@ -83,8 +83,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       currentPost,
-      // previousPost,
-      // nextPost,
+      previousPost,
+      nextPost,
     },
   }
 }
