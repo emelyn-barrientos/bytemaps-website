@@ -26,10 +26,10 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
           />
         </div>
       </div>
-      {/* <div className={buttonsStyles['button-container']}>
-        <PreviousButton uri={previousPost.uri} />
-        <NextButton uri={nextPost.uri} />
-      </div> */}
+      <div className={buttonsStyles['button-container']}>
+        <PreviousButton uri={previousPost && previousPost.uri} />
+        <NextButton uri={nextPost && nextPost.uri} />
+      </div>
     </div>
   )
 }
