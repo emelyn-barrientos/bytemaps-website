@@ -14,16 +14,18 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
       </Head>
       <div className={postStyles['post-container']}>
         <h1 className={postStyles['post-title']}>{currentPost.title}</h1>
-        <iframe
-          className={postStyles['post-video']}
-          width="auto"
-          height="auto"
-          src={currentPost.youTubeUrl}
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
+        <div className={postStyles['post-video-wrapper']}>
+          <iframe
+            className={postStyles['post-video']}
+            width="100%"
+            height="56.25%"
+            src={currentPost.youTubeUrl}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
       </div>
       {/* <div className={buttonsStyles['button-container']}>
         <PreviousButton uri={previousPost.uri} />
