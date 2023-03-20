@@ -3,8 +3,10 @@ import styles from '../styles/Buttons.module.scss'
 
 export default function LeftButton({ nextPostUri }) {
   return (
-    <Link className={styles['button']} href={`${nextPostUri}`}>
-      {nextPostUri ? <h2>Previous</h2> : null}
-    </Link>
+    <button className={styles['button']}>
+      <Link href={`${nextPostUri}`}>
+        {nextPostUri ? <h2>Previous</h2> : null}
+      </Link>
+    </button>
   )
 }
