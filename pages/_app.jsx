@@ -16,11 +16,11 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta
           name="description"
-          content="Digital artwork gallery by Bytemaps."
+          content="Digital artwork gallery by bytemaps."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <title>{title ? `${title} - Bytemaps` : 'Bytemaps'}</title>
+        <title>{title ? `${title} - bytemaps` : 'bytemaps'}</title>
       </Head>
       <NavBar />
       <Component {...pageProps} />
