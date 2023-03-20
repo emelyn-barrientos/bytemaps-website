@@ -12,6 +12,7 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
       <Head>
         <title>{currentPost.title} - Bytemaps</title>
       </Head>
+
       <div className={postStyles['post-container']}>
         <h1 className={postStyles['post-title']}>{currentPost.title}</h1>
         <div className={postStyles['post-video-wrapper']}>
@@ -26,15 +27,20 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
           />
         </div>
       </div>
+
       <div className={buttonStyles['button-container']}>
-        <LeftButton
-          className={buttonStyles['button']}
-          nextPostUri={nextPost && nextPost.uri}
-        />
-        <RightButton
-          className={buttonStyles['button']}
-          previousPostUri={previousPost && previousPost.uri}
-        />
+        {nextPost && (
+          <LeftButton
+            className={buttonStyles['button']}
+            nextPostUri={nextPost && nextPost.uri}
+          />
+        )}
+        {previousPost && (
+          <RightButton
+            className={buttonStyles['button']}
+            previousPostUri={previousPost && previousPost.uri}
+          />
+        )}
       </div>
     </div>
   )
