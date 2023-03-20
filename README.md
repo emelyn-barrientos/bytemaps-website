@@ -17,11 +17,12 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 
 
 ## NEXT STEPS ▶️ ##
-- [ ] Reconnect 'Previous' & 'Next' buttons for individual post pages
+- [x] Reconnect 'Previous' & 'Next' buttons for individual post pages
 - [x] Fix grid styling and order of appearance
 - [X] Reconnect info.js page with Contentful Headless CMS
 - [X] Add next/fonts to project
+- [ ] Finish button styling
+- [ ] Add mobile media queries
 - [ ] Re-organize file structure
-- [ ] Finishing styling
 - [ ] Clean up and refactor code
 - [X] Deploy!
