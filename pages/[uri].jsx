@@ -25,10 +25,16 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           />
         </div>
-      </div>
-      <div className={buttonStyles['button-container']}>
-        <LeftButton nextPostUri={nextPost && nextPost.uri} />
-        <RightButton previousPostUri={previousPost && previousPost.uri} />
+        <div className={buttonStyles['button-container']}>
+          <LeftButton
+            className={buttonStyles['button']}
+            nextPostUri={nextPost && nextPost.uri}
+          />
+          <RightButton
+            className={buttonStyles['button']}
+            previousPostUri={previousPost && previousPost.uri}
+          />
+        </div>
       </div>
     </div>
   )
