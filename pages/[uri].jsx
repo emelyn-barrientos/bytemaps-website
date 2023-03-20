@@ -10,7 +10,7 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
   return (
     <div>
       <Head>
-        <title>{currentPost.title} - Bytemaps</title>
+        <title>{currentPost.title} - bytemaps</title>
       </Head>
 
       <div className={postStyles['post-container']}>
