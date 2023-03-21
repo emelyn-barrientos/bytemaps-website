@@ -7,8 +7,12 @@
   right: 0;
   padding: 1.25rem;
 
-  .button:first-child {
-    margin-right: auto;
+  .button-left {
+    left: 0;
+  }
+
+  .button-right {
+    right: 0;
   }
 }
 
@@ -26,6 +30,16 @@
   
   h2 {
     color: black;
+  }
+
+  &:first-child {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 
