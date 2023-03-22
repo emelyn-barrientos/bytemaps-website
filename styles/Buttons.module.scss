@@ -6,38 +6,31 @@
   left: 0;
   right: 0;
   padding: 1.25rem;
-
-  .button:first-child {
-    margin-right: auto;
-  }
 }
 
 .button {
   background-color: white;
   border: none;
   font-family: 'DM Mono', monospace;
-  flex-basis: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
   padding: 1rem;
   transition: background-color 0.2s ease-in-out;
+  flex-basis: 50%;
   
   h2 {
     color: black;
   }
-}
 
-.button:hover {
-  background-color: black;
-  cursor: pointer;
-  
-  h2 {
-    color: white;
+  &:first-child {
+    margin-right: auto;
+    margin-left: 0;
   }
-  
-  a {
-    text-decoration: none;
+
+  &:last-child {
+    margin-left: auto;
+    margin-right: 0;
   }
 }
