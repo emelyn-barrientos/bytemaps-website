@@ -21,7 +21,7 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 - [x] Fix grid styling and order of appearance
 - [X] Reconnect info.js page with Contentful Headless CMS
 - [X] Add next/fonts to project
-- [ ] Finish button styling
+- [X] Finish button styling
 - [ ] Add mobile media queries
 - [ ] Re-organize file structure
 - [ ] Clean up and refactor code
