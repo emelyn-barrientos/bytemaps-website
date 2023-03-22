@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import styles from '../styles/Info.module.scss'
 import Link from 'next/link'
+import styles from '../styles/Info.module.scss'
 import { contentfulClient } from '@/lib/contentfulClient'
 
 export default function Info({ infoPage }) {
