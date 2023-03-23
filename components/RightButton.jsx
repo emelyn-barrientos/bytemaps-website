@@ -5,7 +5,7 @@ export default function RightButton({ previousPostUri }) {
   return (
     <button className={styles['button']}>
       <Link href={`${previousPostUri}`}>
-        {previousPostUri ? <h2>Next</h2> : null}
+        {previousPostUri ? <p>Next</p> : null}
       </Link>
     </button>
   )

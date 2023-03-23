@@ -5,7 +5,7 @@ export default function LeftButton({ nextPostUri }) {
   return (
     <button className={styles['button']}>
       <Link href={`${nextPostUri}`}>
-        {nextPostUri ? <h2>Previous</h2> : null}
+        {nextPostUri ? <p>Previous</p> : null}
       </Link>
     </button>
   )
