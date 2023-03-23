@@ -13,18 +13,31 @@ export default function App({ Component, pageProps }) {
   const { title } = pageProps
 
   return (
-    <main className={dmMono.className}>
-      <Head>
-        <meta
-          name="description"
-          content="Digital artwork gallery by bytemaps."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <title>{title ? `${title} - bytemaps` : 'bytemaps'}</title>
-      </Head>
-      <NavBar />
-      <Component {...pageProps} />
-    </main>
+    <motion.div
+      initial="pageInitial"
+      animate="pageAnimate"
+      variants={{
+        pageInitial: {
+          opacity: 0,
+        },
+        pageAnimate: {
+          opacity: 1,
+        },
+      }}
+    >
+      <main className={dmMono.className}>
+        <Head>
+          <meta
+            name="description"
+            content="Digital artwork gallery by bytemaps."
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+          <title>{title ? `${title} - bytemaps` : 'bytemaps'}</title>
+        </Head>
+        <NavBar />
+        <Component {...pageProps} />
+      </main>
+    </motion.div>
   )
 }
