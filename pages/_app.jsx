@@ -2,6 +2,7 @@ import Head from 'next/head'
 import NavBar from '@/components/NavBar'
 import '../styles/globals.scss'
 import { DM_Mono } from 'next/font/google'
+import { motion } from 'framer-motion'
 
 const dmMono = DM_Mono({
   subsets: ['latin'],
