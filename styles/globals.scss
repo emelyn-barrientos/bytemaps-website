@@ -10,6 +10,7 @@ body {
 a {
   text-decoration: none;
   color: black;
+  transition: text-decoration 0.3s ease-in-out
 }
 
 a:hover {
