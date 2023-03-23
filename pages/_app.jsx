@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
-import { DM_Mono } from 'next/font'
+import { DM_Mono } from 'next/font/google'
 import { motion } from 'framer-motion'
 import '../styles/globals.scss'
 
