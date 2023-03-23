@@ -5,7 +5,7 @@ import { DM_Mono } from 'next/font/google'
 
 const dmMono = DM_Mono({
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['400'],
 })
 
 export default function App({ Component, pageProps }) {
