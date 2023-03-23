@@ -9,11 +9,12 @@ const dmMono = DM_Mono({
   weight: ['400'],
 })
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
   const { title } = pageProps
 
   return (
     <motion.div
+      key={router.route}
       initial="pageInitial"
       animate="pageAnimate"
       variants={{
