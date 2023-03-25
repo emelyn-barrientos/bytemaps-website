@@ -5,10 +5,25 @@ import postStyles from '../styles/Post.module.scss'
 import buttonStyles from '../styles/Buttons.module.scss'
 import { contentfulClient } from '@/lib/contentfulClient'
 import { parseMedia } from '@/utils/parseMedia'
+import { motion } from 'framer-motion'
 
 export default function SlugPage({ currentPost, previousPost, nextPost }) {
   return (
-    <div>
+    <motion.div
+      initial="pageInitial"
+      animate="pageAnimate"
+      variants={{
+        pageInitial: {
+          opacity: 0,
+        },
+        pageAnimate: {
+          opacity: 1,
+          transition: {
+            duration: 0.5,
+          },
+        },
+      }}
+    >
       <Head>
         <title>{currentPost.title} - bytemaps</title>
       </Head>
@@ -46,7 +61,7 @@ export default function SlugPage({ currentPost, previousPost, nextPost }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
