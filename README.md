@@ -12,6 +12,7 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 - Next.js
 - Sass/SCSS
 - Contentful Headless CMS
+- Framer Motion API
 - Webhooks
 - Vercel (deployment)
 
