@@ -13,7 +13,7 @@ export default function PostCard({ post }) {
             scale: 1,
             opacity: 0.75,
             transition: {
-              duration: 0.6,
+              duration: 0.4,
               ease: 'easeInOut',
               repeat: Infinity,
               repeatType: 'reverse',
