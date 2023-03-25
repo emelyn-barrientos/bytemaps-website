@@ -16,6 +16,10 @@
   font-size: 2rem;
   font-weight: 800;
   margin: 0rem;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
 }
 
 .nav-links {
@@ -24,12 +28,19 @@
   margin: 0rem;
 
   @media screen and (max-width: 768px) {
-    margin-top: 1rem;
+    padding: 0rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
 .nav-list-item {
   margin-left: 1.25rem;
   font-size: 1.25rem;
-  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    margin: 0.5rem;
+    flex-basis: calc(33.33% - 1rem);
+    text-align: center;
+  }
 }
