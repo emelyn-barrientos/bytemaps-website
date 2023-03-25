@@ -6,9 +6,21 @@
   text-align: center;
   height: 65vh;
   margin-top: 6rem;
+
+  @media screen and (max-width: 768px) {
+    margin: auto;
+    justify-content: center;
+    height: 50vh;
+    margin-top: 3rem;
+  }
 }
 
 .info-text {
   font-size: 2rem;
   width: 75%;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
