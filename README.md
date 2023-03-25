@@ -22,7 +22,7 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 - [X] Reconnect info.js page with Contentful Headless CMS
 - [X] Add next/fonts to project
 - [X] Finish button styling
-- [ ] Add page transitions & final stylings
+- [X] Add page transitions & final stylings
 - [ ] Add mobile media queries
 - [ ] Re-organize file structure
 - [ ] Clean up and refactor code
