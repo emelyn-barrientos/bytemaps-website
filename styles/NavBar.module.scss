@@ -3,6 +3,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .site-title {
@@ -15,6 +22,10 @@
   display: flex;
   list-style: none;
   margin: 0rem;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 1rem;
+  }
 }
 
 .nav-list-item {
