@@ -35,7 +35,6 @@ export async function getStaticProps() {
     emailAddress: infoPageEntry.fields.emailAddress,
   }
 
-  console.log('infoPage: ', infoPage)
   return {
     props: {
       infoPage: infoPage || [],
