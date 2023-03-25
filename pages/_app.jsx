@@ -24,7 +24,7 @@ export default function App({ Component, pageProps, router }) {
         pageAnimate: {
           opacity: 1,
           transition: {
-            duration: 0.5,
+            duration: 0.75,
           },
         },
       }}
