@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/PostCard.module.scss'
+import { motion } from 'framer-motion'
 
 export default function PostCard({ post }) {
   return (
