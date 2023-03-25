@@ -24,7 +24,7 @@ To challenge myself, I've decided to work with the Wordpress Headless CMS (so th
 - [X] Add next/fonts to project
 - [X] Finish button styling
 - [X] Add page transitions & final stylings
-- [ ] Add mobile media queries
+- [X] Add mobile media queries
 - [ ] Re-organize file structure
 - [ ] Clean up and refactor code
 - [X] Deploy!
