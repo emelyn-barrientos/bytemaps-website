@@ -9,7 +9,16 @@ export default function PostCard({ post }) {
       <Link href={post.uri}>
         <motion.div
           className={styles['post-image']}
-          whileHover={{ rotate: 5, scale: 1.1 }}
+          whileHover={{
+            scale: 1,
+            opacity: 0.75,
+            transition: {
+              duration: 0.6,
+              ease: 'easeInOut',
+              repeat: Infinity,
+              repeatType: 'reverse',
+            },
+          }}
         >
           <Image
             src={post.thumbnail.url}
