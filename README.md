@@ -2,9 +2,9 @@
 
 This project is currently WORK-IN-PROGRESS!
 
-I'm making a custom website for local Wellington artist, Bytemaps. The brief is to create a site where the artist can easily upload and post high res videos of his artwork as a curated digital gallery (Instagram compresses the video quality, thus the conception of this project).
+I'm making a custom website for local Wellington artist, Bytemaps. The brief is to create a site where the artist can easily upload and post high resolution videos of his artwork as a curated digital gallery (Instagram compresses the video quality, thus the conception of this project).
 
-To challenge myself, I've decided to work with the Wordpress Headless CMS (so the client can upload content on his own) and integrate it with Next.js. So far, I'm loving learning how to use new tools like WPGraphQL and Apollo Client.
+To challenge myself, I've decided to work with the Contentful Headless CMS (so the client can easily upload content) and integrate it with Next.js for a custome frontend website. So far, I've had a lot of fun exploring the Headless CMS space, learning new aspects of Next.js like dynamic paths routing, and playing around with the Framer Motion API for smoother page transitions and animations. 
 
 ## TECH USED 👩🏽‍💻 ##
 - JavaScript
