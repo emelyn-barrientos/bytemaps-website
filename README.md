@@ -23,6 +23,7 @@ To challenge myself, I've decided to work with the Contentful Headless CMS (so t
 - [X] Finish button styling
 - [X] Add page transitions & final stylings
 - [X] Add mobile media queries
+- [ ] Integrate Google Analytics
 - [ ] Re-organize file structure
 - [ ] Clean up and refactor code
 - [X] Deploy!
