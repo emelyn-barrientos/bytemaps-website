@@ -1,4 +1,6 @@
-# About Bytemaps 👾 # 
+# About bytemaps 👾 # 
+
+🔗 www.bytemaps.xyz
 
 I'm making a custom website for local Wellington artist, bytemaps. The brief is to create a site where the artist can easily upload and post high resolution videos of his artwork as a curated digital gallery (Instagram compresses the video quality, thus the conception of this project).
 
